@@ -7,7 +7,7 @@ class bitlbee::config {
 
 		notify => Service[$bitlbee::service_name],
 
-		ensure => file,
+		ensure => present,
 		mode => '0640',
 		owner => 'root',
 		group => 'root',
@@ -17,7 +17,7 @@ class bitlbee::config {
 
 		notify => Service[$bitlbee::service_name],
 
-		ensure => file,
+		ensure => present,
 		mode => '0644',
 		owner => 'root',
 		group => 'root',

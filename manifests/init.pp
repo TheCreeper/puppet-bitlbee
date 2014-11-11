@@ -11,6 +11,9 @@ class bitlbee (
 	$service_ensure = running,
 	$service_name = 'bitlbee',
 
+	$config_purge = true,
+	$configdir = '/etc/bitlbee',
+
 	$runmode = undef,
 	$user = 'bitlbee',
 	$daemoninterface = undef,
@@ -21,7 +24,6 @@ class bitlbee (
 	$operpassword = undef,
 	$hostname = $fqdn,
 	$motdfile = '/etc/bitlbee/motd.txt',
-	$configdir = '/etc/bitlbee',
 	$pinginterval = undef,
 	$pingtimeout = undef,
 	$proxy = undef,
@@ -39,6 +41,9 @@ class bitlbee (
 	validate_string($service_ensure)
 	validate_string($service_name)
 
+	validate_bool($config_purge)
+	validate_absolute_path($configdir)
+
 	validate_string($runmode)
 	validate_string($user)
 	validate_string($daemoninterface)
@@ -48,7 +53,6 @@ class bitlbee (
 	validate_string($operpassword)
 	validate_string($hostname)
 	validate_absolute_path($motdfile)
-	validate_absolute_path($configdir)
 	validate_string($pinginterval)
 	validate_string($pingtimeout)
 	validate_string($proxy)
